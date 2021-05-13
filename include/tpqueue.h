@@ -7,7 +7,7 @@ template < typename T>
 class TPQueue {
  struct ITEM {
    T data;
-   ITEM * next 
+   ITEM * next;
 };
  public:
    TPQueue() : head(nullptr), tail(nullptr) {}
