@@ -10,7 +10,7 @@ class TPQueue {
    ITEM * next;
 };
  public:
-   TPQueue() : head(nullptr), tail(nullptr) {}
+   TPQueue():head(nullptr),tail(nullptr) {}
    ~TPQueue();
    void push(const T&);
    T pop();
