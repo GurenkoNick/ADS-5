@@ -39,23 +39,23 @@ template < typename T >
 template < typename T >
 void TPQueue  <T>:: push (const T& data) {
   if (tail && head) {
-    ITEM* temp = head;
-   if (data.prior >= temp->data.prior) {
-    temp = create(data);
-    temp-next = head;
-    head = temp;
-   }
-  } else
-    while (data.prior <= temp->data.prior) && (temp->next)
-      temp = temp->next;
-  if (!temp->next) {
-    temp = create(data);
-    tail->next = temp;
-    tail = temp;
-  } else {
-    ITEM* tempI = temp;
-    temp = create(data);
-    temp->next = tempI;
+      ITEM* temp = head;
+      if (data.prior >= temp->data.prior) {
+        temp = create(data);
+        temp-next = head;
+        head = temp;
+      } else
+        while (data.prior <= temp->data.prior) && (temp->next)
+            temp = temp->next;
+      if (!temp->next) {
+        temp = create(data);
+        tail->next = temp;
+        tail = temp;
+      } else {
+        ITEM* tempI = temp;
+        temp = create(data);
+        temp->next = tempI;
+      }
   }
 }
 template < typename T >
