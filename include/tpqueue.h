@@ -11,8 +11,6 @@ class TPQueue {
   };
  public:
   TPQueue();
-  TPQueue(const T&);
-  TPQueue(const TPQueue&);
   ~TPQueue();
   void push(const T&);
   T pop();
@@ -32,11 +30,6 @@ item->next = nullptr;
 return item;
 }
 template<typename T>
-TPQueue<T>::TPQueue(const T& data) {
-  head = create(data);
-  tail = head;
-}
-template<typename T>
      TPQueue<T>::~TPQueue() {
         while (head)
            pop();
@@ -45,7 +38,7 @@ template<typename T>
 void TPQueue<T>::push(const T& data) {
   if (tail && head) {
       ITEM* temp = head;
-      if (data.prior >= temp->data.prior) {
+      if (data.prior > temp->data.prior) {
         temp = create(data);
         temp->next = head;
         head = temp;
