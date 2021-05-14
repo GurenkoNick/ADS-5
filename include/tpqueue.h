@@ -10,8 +10,9 @@ class TPQueue {
     ITEM * next;
   };
  public:
-  TPQueue<T>::TPQueue():head(nullptr), tail(nullptr) {}
+  TPQueue():head(nullptr), tail(nullptr) {}
   TPQueue(const T&);
+  TPQueue(const TPQueue&);
   ~TPQueue();
   void push(const T&);
   T pop();
@@ -29,8 +30,8 @@ return item;
 }
 template<typename T>
 TPQueue<T>::TPQueue(const T& data) {
-   head = create(data);
-   tail = head;
+  head = create(data);
+  tail = head;
 }
 template<typename T>
      TPQueue<T>::~TPQueue() {
@@ -62,13 +63,13 @@ void TPQueue<T>::push(const T& data) {
 }
 template<typename T>
 T TPQueue<T>::pop() {
- if (head) {
-  ITEM * temp = head->next;
-  T data = head->data;
-  delete head;
-  head = temp;
-  return data;
- }
+  if (head) {
+    ITEM * temp = head->next;
+    T data = head->data;
+    delete head;
+    head = temp;
+    return data;
+  }
 }
 struct SYM {
   char ch;
